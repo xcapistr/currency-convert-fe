@@ -1,0 +1,52 @@
+<div class='exchange-container'>
+  <div style="text-align:center">
+    <img src="../assets/img/Icons8_flat_currency_exchange.svg.png" height="200">
+  </div>
+  <mat-card class="main-panel">
+    <span style="margin-right:24px; margin-left:24px;">Currency:</span>
+    <mat-form-field floatLabel="never" style="width:80px; margin-top:4px">
+      <mat-select placeholder="From" class="curency">
+        <mat-option value="czk">
+          CZK
+        </mat-option>
+        <mat-option value="eur">
+          EUR
+        </mat-option>
+        <mat-option value="eur">
+          USD
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button disabled style="padding:0; max-width:25px !important;">
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+    <mat-form-field floatLabel="never" style="width:80px; margin-top:4px;">
+      <mat-select placeholder="To" class="curency">
+        <mat-option value="czk">
+          CZK
+        </mat-option>
+        <mat-option value="eur">
+          EUR
+        </mat-option>
+        <mat-option value="eur">
+          USD
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-divider [vertical]="true">Ahoj</mat-divider>
+    <span style="margin-left:24px; padding: 16px 0 16px 24px;">Amount:</span>
+    <mat-form-field floatLabel="never" style="margin: 4px 22px -10px 22px">
+      <input matInput placeholder=0.00 type="number" class="example-right-align">
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="submit" (click)="switch()">
+      <!--<mat-icon>done</mat-icon>-->
+      CONVERT
+    </button>
+  </mat-card>
+  <div *ngIf="show" class="result-container" style="text-align: center">
+    <mat-card class="result-panel">
+      <span style="margin-right:24px; float: left;">Result:</span>
+      <span style="margin-right:24px; font-weight: bold; padding-right: 50px;">1000.00 CZK = 40.00 EUR</span>
+    </mat-card>
+  </div>
+</div>
