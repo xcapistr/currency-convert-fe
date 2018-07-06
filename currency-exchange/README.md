@@ -3,6 +3,10 @@
 This project is just experimental currency conversion app in Angular 6.
 This app also needs to run [Restful API server app](https://github.com/xcapistr/currency-convert-be) before using.
 
+## Dependencies
+
+Run `npm install` for install dependencies.
+
 ## Development server
 
 Change `"target"` value in `proxyconfig.json` file if your RESTful API running on different address than `http://localhost:3000/`.
