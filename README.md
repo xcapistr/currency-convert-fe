@@ -1,2 +1,3 @@
 # currency-convert-fe
-Just experimental currency conversion app (front end app in Angular JS)
+
+Go to `currency-convert-fe/currency-exchange`.

@@ -7,6 +7,6 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <div class="app-body">
-  <app-exchange class="exchange"></app-exchange>
-  <app-stat></app-stat>
+  <app-exchange (myEvent)="stat.updateStat()"></app-exchange>
+  <app-stat #stat></app-stat>
 </div>

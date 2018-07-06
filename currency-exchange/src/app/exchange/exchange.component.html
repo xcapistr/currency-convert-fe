@@ -5,39 +5,31 @@
   <mat-card class="main-panel" [id]="exchangerId">
     <span class="currency-label">Currency:</span>
     <mat-form-field floatLabel="never" style="width:80px; margin-top:4px; margin-left: 24px;">
-      <mat-select placeholder="From" class="curency">
-        <mat-option value="czk">
-          CZK
-        </mat-option>
-        <mat-option value="eur">
-          EUR
-        </mat-option>
-        <mat-option value="eur">
-          USD
+      <mat-select [(ngModel)]="currencyA" placeholder="From" class="curency" matTooltip="Select source currency" matTooltipPosition="above"
+        matTooltipShowDelay="1000">
+        <mat-option *ngFor="let c of curr" (click)="closePanel()" value="{{c}}">
+          {{c}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-button style="padding:0">
+    <button mat-button (click)="swapCurrencies()" matTooltip="Swap currencies" matTooltipPosition="above" matTooltipShowDelay="1000"
+      style="padding:0">
       <mat-icon>swap_horiz</mat-icon>
     </button>
     <mat-form-field floatLabel="never" style="width:80px; margin-top:4px;">
-      <mat-select placeholder="To" class="curency">
-        <mat-option value="czk">
-          CZK
-        </mat-option>
-        <mat-option value="eur">
-          EUR
-        </mat-option>
-        <mat-option value="eur">
-          USD
+      <mat-select [(ngModel)]="currencyB" (input)="closePanel()" placeholder="To" class="curency" matTooltip="Select destination currency"
+        matTooltipPosition="above" matTooltipShowDelay="1000">
+        <mat-option *ngFor="let c of curr" (click)="closePanel()" value="{{c}}">
+          {{c}}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <span class="amount-label">Amount:</span>
     <mat-form-field floatLabel="never" class="amount">
-      <input matInput placeholder=0.00 type="number" class="example-right-align">
+      <input matInput [(ngModel)]="amount" (input)="closePanel()" maxLength="10" placeholder=0.00 type="number" class="example-right-align"
+        matTooltip="Enter amount" matTooltipPosition="above" matTooltipShowDelay="1000">
     </mat-form-field>
-    <button mat-raised-button color="primary" class="submit" (click)="switch()">
+    <button mat-raised-button color="primary" class="submit" (click)="convert()">
       <!--<mat-icon>arrow_forward</mat-icon>-->
       CONVERT
     </button>
@@ -45,8 +37,15 @@
   <div [class]="resultClass" style="text-align: center">
     <mat-card class="result-panel">
       <!--<span style="margin-right:24px; float: left;">Result:</span>-->
-      1000.00 CZK =
-      <span style="font-weight: bold; color:#673ab7; font-size:24px;"> 40.00</span> EUR
+      <span class="result">
+        <span *ngIf="!msg">
+          {{amount}} {{currencyA}} =
+          <span style="font-weight: bold; color:#673ab7; font-size:24px;"> {{result}} </span> {{currencyB}}
+        </span>
+        <span class="err" *ngIf="msg">
+          <p style="margin: 0; padding: 5px;">{{msg}}</p>
+        </span>
+      </span>
     </mat-card>
   </div>
 </div>

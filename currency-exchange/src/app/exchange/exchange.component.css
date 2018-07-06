@@ -73,16 +73,21 @@
   transition: 0.3s;
   margin-top: -67px;
   margin-bottom: -5px;
+  max-height: 73 !important;
 }
 
 .result-panel {
   padding: 25px 24px 20px 24px;
   border-radius: 0 0 5px 5px;
-  margin-right: 100px;
+  margin-right: 98px;
 }
 
 .last-result {
   text-align: center;
+}
+
+.err {
+  color: #f44242;
 }
 
 .submit {
